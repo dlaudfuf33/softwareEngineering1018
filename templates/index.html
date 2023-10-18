@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 분석</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2e7fe;
+            color: #4a154b;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #d3b3e5;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4a154b;
+            color: #f2e7fe;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #6e3d77;
+        }
+        img {
+            margin-top: 20px;
+            border: 5px solid #d3b3e5;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 업로드 및 얼굴 모자이크 처리</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <br>
+        <input type="submit" value="업로드 및 모자이크 처리">
+    </form>
+    {% if original_image_url and mosaic_image_url %}
+    <h2>처리 전후 이미지:</h2>
+    <img src="{{ original_image_url }}" alt="Original Image" width="300">
+    <img src="{{ mosaic_image_url }}" alt="Mosaic Image" width="300">
+    {% endif %}
+</body>
+</html>
